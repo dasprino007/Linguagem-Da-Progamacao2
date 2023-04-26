@@ -63,11 +63,27 @@ let avião = {
     tipo : "boinng",
     velocidadeMaxima: 200,
     velocidade : 0,
+        altitude : 0,
     qtDePassageiros : 300,
 
-    acelarando : function(){
+    acelerando : function(){
         if(this.ligado && this.velocidade<=this.velocidadeMaxima){
           this.velocidade = this.velocidade + 10
+        }
+    },
+    subindo : function(){
+    if(this.ligado && this.velocidade == 200){
+    this.altitude = this.altitude + 100
+    }
+    },
+    descendo : function(){
+        if(this.ligado && this.velocidade == 200 && this.altitude >= 0){
+        this.altitude = this.altitude - 100
+        }
+        },
+    desacelerando : function(){
+        if(this.ligado && this.velocidade<=this.velocidadeMaxima){
+          this.velocidade = this.velocidade - 10
         }
     },
     ligar : function(){
@@ -81,10 +97,29 @@ let avião = {
 }
 
 avião.ligar()
+
 console.log("acelerando...")
 for(let i=1; i <= 20; i++){
-avião.acelarando()
+avião.acelerando()
 console.log("velocidade atual:", avião.velocidade, "km/h")
 }
 
+console.log("subindo...")
+for(let i=1; i <= 30; i++){
+    avião.subindo()
+    console.log("altitude atual:", avião.altitude, "metros")
+    }
+
+console.log("descendo...")
+for(let i=1; i <= 30; i++){
+    avião.descendo()
+    console.log("altitude atual:", avião.altitude, "metros")
+    }
+
+console.log("pousado")
+console.log("desacelerando...")
+for(let i=1; i <= 20; i++){
+    avião.desacelerando()
+    console.log("velocidade atual:", avião.velocidade, "km/h")
+    }
 avião.desligar()
