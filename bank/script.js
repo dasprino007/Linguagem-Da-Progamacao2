@@ -50,6 +50,26 @@ class conta{
     }
 }
 
+class Empresa extends conta{
+    constructor(numero,cpf,saldo,ativo,emprestimoEmpresa){
+        super(numero,cpf, saldo, ativo);
+        this.emprestimoEmpresa = emprestimoEmpresa;
+    }
+        pedirEmprestimo(valor){ //(soma no saldo e tira do empresitmo)
+            if(valor < 0){
+                console.log("o numero que voce esta colocando é negativo")
+            }
+            else if(valor > this.emprestimoEmpresa){
+                console.log("voce ultrapasso o limite")
+            }
+            else if (valor <= this.emprestimoEmpresa){
+                this.saldo += valor
+                this.emprestimoEmpresa -= valor
+            }
+        }
+}       
+
+
 //progama principal
 const leia = require('prompt-sync')()
 
@@ -76,3 +96,31 @@ for(let i=1; i<=10; i++){
 }
 
 console.log("saldo final da conta",c1.saldo)
+
+numero = parseInt(leia("digite numero da conta: "))
+cpf = leia("digite o cpf da conta : ")
+let c2 = new Empresa(numero,cpf,0,false,10000)
+op=""
+c2.ativar()
+c2.credito(100)
+console.log("saldo atual",c2.saldo)
+
+for(let i=1; i<=10; i++){
+    op = leia("Digite D - debito ou C para credito : ")
+    if(op == "D" || op == "d"){
+        valor = parseInt(leia("digite o valor para debito : "))
+        c2.debito(valor)
+    }
+
+    else if(op == "C" || op == "c"){
+        valor = parseInt(leia("digite o valor para credito : "))
+        c2.credito(valor)
+    }
+    console.log("saldo atual :",c2.saldo)
+}
+console.log("saldo final da conta",c2.saldo)
+
+valor = parseInt(leia("digite o valor do credito : "))
+c2.pedirEmprestimo(valor)
+console.log("saldo final da conta",c2.saldo)
+console.log("limite do emprestismo :",c2.emprestimoEmpresa)
