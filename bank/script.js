@@ -67,8 +67,35 @@ class Empresa extends conta{
                 this.emprestimoEmpresa -= valor
             }
         }
-}       
+}
 
+class corrente extends conta {
+    constructor(numero,cpf,saldo,ativo,talãoMax,talãoUsuario){
+    super(numero,cpf, saldo, ativo);
+    this.talãoMax = talãoMax
+    this.talãoUsuario = talãoUsuario
+    }
+    talão(valor){
+        if (this.talãoUsuario < this.talãoMax) {
+            if(valor <= 30){
+                this.saldo += valor
+                this.talãoUsuario++
+            }
+
+            else if(valor>30){
+                console.log("ultrapassou o limite do saldo de 30 reais")
+            }
+    
+            else if(valor ==0){
+            console.log("impossivel realizar o saldo")
+            }
+        }
+
+        else{
+            console.log("voce ja chegou no seu limite de 3 talões")
+        }
+    }
+}
 
 //progama principal
 const leia = require('prompt-sync')()
