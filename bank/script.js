@@ -52,7 +52,7 @@ class conta{
 
 class Empresa extends conta{
     constructor(numero,cpf,saldo,ativo,emprestimoEmpresa){
-        super(numero,cpf, saldo, ativo);
+        super(numero,cpf, saldo,ativo);
         this.emprestimoEmpresa = emprestimoEmpresa;
     }
         pedirEmprestimo(valor){ //(soma no saldo e tira do empresitmo)
@@ -71,7 +71,7 @@ class Empresa extends conta{
 
 class corrente extends conta {
     constructor(numero,cpf,saldo,ativo,talãoMax,talãoUsuario){
-    super(numero,cpf, saldo, ativo);
+    super(numero,cpf, saldo,ativo);
     this.talãoMax = talãoMax
     this.talãoUsuario = talãoUsuario
     }
@@ -99,24 +99,25 @@ class corrente extends conta {
 
 //progama principal
 const leia = require('prompt-sync')()
-let c1 = new conta (0,0,0,false)
+let c1
+
 
 console.log("badesco")
 console.log("aonde as taxas são muitos baixas")
 console.log("1-conta emprestismo \n2-conta corrente")
-var escolher_conta = leia("coloque um dos numeros acimas")
-
- switch(escolher_conta){
- case 1:
-    c1 = new Empresa(numero,cpf,0,false,10000)
- break;
- case 2 :
-    c1 = new corrente (numero,cpf,0,false,30,0)
- break;
-}
+let escolher_conta = leia("coloque um dos numeros acimas : ")
 
 let numero = parseInt(leia("digite numero da conta: "))
 let cpf = leia("digite o cpf da conta : ")
+
+if(1 == escolher_conta){
+c1 = new Empresa (numero,cpf,0,false,1000)
+}
+
+else if(2 == escolher_conta){
+c1 = new corrente (numero,cpf,0,false,3,0)
+}
+
 let op=""
 c1.ativar()
 c1.credito(100)
@@ -139,33 +140,54 @@ for(let i=1; i<=10; i++){
 console.log("saldo final da conta",c1.saldo)
 
 var x = 0
-
 while(x < 1){
-    escolher_conta = escolher_conta
-    var alternativas = leia("coloque um dos numeros acimas")
-    switch(escolher_conta){
-        case 1:
-            console.log("Saldo Atual: R$", c1.saldo , "emprestimo R$",c1.emprestimoEmpresa)
-            switch(alternativas){
+    console.log("badesco")
+    console.log("aonde as taxas são muitos baixas")
+    if(escolher_conta == 1){
+        console.log("Saldo Atual: R$",c1.saldo,"limite emprestimo R$",c1.emprestimoEmpresa,"\n1-debito \n2-credito \n3-emprestimo \n4-sair")
+        var  alternativas1 = parseInt(leia("coloque um dos numeros acimas :"))
+        switch(alternativas1){
             case 1:
                 valor = parseInt(leia("digite o valor para debito : "))
                 c1.debito(valor)
-            break;
-            case 2:
-                valor = parseInt(leia("digite o valor para credito : "))
-                c1.credito(valor)
-            break;
-            case 3:
-                valor = parseInt(leia("digite o valor do emprestimo : "))
-                c1.pedirEmprestimo(valor)
-            break;
-            case 4:
-            x++
-            console.log("obrigado por sair")
-            break;
+                break;
+                case 2:
+                    valor = parseInt(leia("digite o valor para credito : "))
+                    c1.credito(valor)
+                    break;
+                    case 3:
+                        valor = parseInt(leia("digite o valor do emprestimo : "))
+                        c1.pedirEmprestimo(valor)
+                        break;
+                        case 4:
+                            x++
+                            console.log("obrigado por sair")
+                            break;
+                        }
+                        console.log("saldo atual :",c1.saldo)
+                    }
+                    else if(escolher_conta == 2){
+                        console.log("Saldo Atual: R$",c1.saldo,"limite talão R$",c1.talãoMax-c1.talãoUsuario,"\n1-debito \n2-credito \n3-talão \n4-sair")
+                        var  alternativas2 = parseInt(leia("coloque um dos numeros acimas :"))
+                        switch(alternativas2){
+                            case 1:
+                                valor = parseInt(leia("digite o valor para debito : "))
+                    c1.debito(valor)
+                break;
+                case 2:
+                    valor = parseInt(leia("digite o valor para credito : "))
+                    c1.credito(valor)
+                    break;
+                    case 3:
+                    valor = parseInt(leia("digite o valor do talão : "))
+                    c1.talão(valor)
+                    break;
+                    case 4:
+                        x++
+                        console.log("obrigado por usar nossos produtos")
+                        break;
+                    }
+                    console.log("saldo atual :",c1.saldo)
+                }
+                
             }
-        break;
-    }
-}
-
-// desculpa professor eu tentei mas eu não tive ideia de como fazer a UI
