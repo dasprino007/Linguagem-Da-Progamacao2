@@ -99,10 +99,24 @@ class corrente extends conta {
 
 //progama principal
 const leia = require('prompt-sync')()
+let c1 = new conta (0,0,0,false)
+
+console.log("badesco")
+console.log("aonde as taxas são muitos baixas")
+console.log("1-conta emprestismo \n2-conta corrente")
+var escolher_conta = leia("coloque um dos numeros acimas")
+
+ switch(escolher_conta){
+ case 1:
+    c1 = new Empresa(numero,cpf,0,false,10000)
+ break;
+ case 2 :
+    c1 = new corrente (numero,cpf,0,false,30,0)
+ break;
+}
 
 let numero = parseInt(leia("digite numero da conta: "))
 let cpf = leia("digite o cpf da conta : ")
-let c1 = new conta(numero,cpf,0,false)
 let op=""
 c1.ativar()
 c1.credito(100)
@@ -124,30 +138,34 @@ for(let i=1; i<=10; i++){
 
 console.log("saldo final da conta",c1.saldo)
 
-numero = parseInt(leia("digite numero da conta: "))
-cpf = leia("digite o cpf da conta : ")
-let c2 = new Empresa(numero,cpf,0,false,10000)
-op=""
-c2.ativar()
-c2.credito(100)
-console.log("saldo atual",c2.saldo)
+var x = 0
 
-for(let i=1; i<=10; i++){
-    op = leia("Digite D - debito ou C para credito : ")
-    if(op == "D" || op == "d"){
-        valor = parseInt(leia("digite o valor para debito : "))
-        c2.debito(valor)
+while(x < 1){
+    escolher_conta = escolher_conta
+    var alternativas = leia("coloque um dos numeros acimas")
+    switch(escolher_conta){
+        case 1:
+            console.log("Saldo Atual: R$", c1.saldo , "emprestimo R$",c1.emprestimoEmpresa)
+            switch(alternativas){
+            case 1:
+                valor = parseInt(leia("digite o valor para debito : "))
+                c1.debito(valor)
+            break;
+            case 2:
+                valor = parseInt(leia("digite o valor para credito : "))
+                c1.credito(valor)
+            break;
+            case 3:
+                valor = parseInt(leia("digite o valor do emprestimo : "))
+                c1.pedirEmprestimo(valor)
+            break;
+            case 4:
+            x++
+            console.log("obrigado por sair")
+            break;
+            }
+        break;
     }
-
-    else if(op == "C" || op == "c"){
-        valor = parseInt(leia("digite o valor para credito : "))
-        c2.credito(valor)
-    }
-    console.log("saldo atual :",c2.saldo)
 }
-console.log("saldo final da conta",c2.saldo)
 
-valor = parseInt(leia("digite o valor do credito : "))
-c2.pedirEmprestimo(valor)
-console.log("saldo final da conta",c2.saldo)
-console.log("limite do emprestismo :",c2.emprestimoEmpresa)
+// desculpa professor eu tentei mas eu não tive ideia de como fazer a UI
