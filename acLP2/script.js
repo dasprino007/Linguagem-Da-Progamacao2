@@ -87,7 +87,7 @@ while(2 != sair){
         let valor = parseInt(leia("quantos produtos vc quer comprar :"))
         P1.retirarEstoque(valor)
         console.log("total a pagar",P1.preco*valor)
-        venda++
+        venda =+ valor
         console.log("--------------------------------------------------------------")
     }
     console.log("produtos:",produtos)
@@ -98,5 +98,5 @@ while(2 != sair){
 
     console.log("estoque atual é",P1.estoque)
 
-    
+
 }
