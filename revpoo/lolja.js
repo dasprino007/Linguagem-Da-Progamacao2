@@ -5,10 +5,6 @@ let produto = ["BONÉ","CALÇA","BERMUDA AFRO","BATA","CAMISA AFRO","SAIA RODADA
 let valor = [100.00,150.00,90.00,140.00,150.00,90.00,90.00,150.00,100.00,95.50];
 let estoque = [10,10,10,10,10,10,10,10,10,10];
 let carinho = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-let total = total + precos;
-//let imposto = (total * 0.9);
-//let op = 0;
-//let avista = (total*0.9);
 
 // variaveis
 let x = 0;
@@ -17,58 +13,58 @@ let slogan = "Atravessamos o que for para entregar a melhor \n qualidade até vo
 let i = 0;
 let o = 0;
 let op = 0;
-let cod;
-let imposto = total * 0.9;
+
 
 while(x < 1){
     console.log(loja)
     console.log(slogan)
-    let pergunta = leia("\n \n deseja continuar S/N :")
+    let pergunta = leia("deseja continuar S/N :")
     if(pergunta == "N" || pergunta == "n"){// se não
         console.log("tenha um bom dia");
-        x++;
+        break;
     }
-        
+    console.log("codigo"+'\t'+"produto"+'\t'+"valor"+'\t'+"estoque")
     for(let i=0; i<codigo.length; i++){
             console.log(codigo[i]+'\t'+produto[i]+'\t'+valor[i]+'\t'+estoque[i]+'\t'+carinho[i])
     }
         console.log("carinho de compras")
         for(let i=0; i<codigo.length; i++){
-            if(carinho[i] == null && carinho[i] <= 0){
-                
-            }
-            else{
+            if(carinho[i] != null && carinho[i] > 0){
                 console.log(codigo[i]+'\t'+produto[i]+'\t'+valor[i]+'\t'+estoque[i]+'\t'+carinho[i])
-            }  
+            }
         }
-        cod = leia("coloque o codigo do produto")
+        let cod = leia("coloque o codigo do produto :")
         for(let i=0; i<codigo.length; i++){
-            if(cod = codigo[i]){
+            if(cod == codigo[i]){
                 console.log(codigo[i]+'\t'+produto[i]+'\t'+valor[i]+'\t'+estoque[i]+'\t'+carinho[i])
                 cod = i
             }
         }
         
         while(i < 1){
-            carinho[cod] = leia("coloque quanto vc quer?")
-            if(estoque[cod] >= carinho[cod] && carinho[cod] < 0){
-                estoque[cod] - carinho[cod]
-                break;
+            carinho[cod] = leia("coloque quanto vc quer? :")
+            if(estoque[cod] >= carinho[cod] && carinho[cod] > 0){
+                estoque[cod] = estoque[i] - carinho[cod]
+                i++
             }
             else{
             console.log("numero errado")   
             }
     }
-        pergunta = leia("\n \n deseja continuar S/N :")
+    // joão continua ea
+        pergunta = leia("deseja continuar S/N :")
         if(pergunta == "N" || pergunta == "n"){// se não
             console.log("tenha um bom dia");
             break;
+        }
+        else{
+            console.log("\n\n\n")
         }
     }
 
 
 //carinho de compra
-
+// a tabelas não tao fucionando se tiver alguma duvida me fala ok
 // Programa Nota Fiscal
 
 console.log(loja);
@@ -89,4 +85,4 @@ do{
 
 }
 
-while(op == 1 || op == 2 || op == 3)
+while(op == 1 || op == 2 || op == 3)*/
