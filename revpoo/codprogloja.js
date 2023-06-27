@@ -27,5 +27,4 @@ console.log("COD\tPRODUTO\tPREÇOS")
 for(let i=0; i<codigos.length; i++){
     console.log(codigos[i]+'\t'+produtos[i]+'\t'+precos[i])
 }
-
-
+let total = total + precos; // exemplo totalizador
