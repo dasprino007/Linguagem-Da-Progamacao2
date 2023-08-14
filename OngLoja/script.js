@@ -36,6 +36,7 @@ while(loop < 1){
     
     console.log("o valor total é de R$"+total)
     movimento = [0,0,0]
+    total = 0
     resp = leia("deseja sair? :")
     if(resp == "sim"){
        loop++
