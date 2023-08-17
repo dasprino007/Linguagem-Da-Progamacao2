@@ -19,7 +19,7 @@ while(loop < 1){
         }
 
         console.log("1-adicionar\n2-renomear\n3-deletar\n4-ler\n5-comprar\n6-sair")
-        condicao = leia("escolha umas das opçoes")
+        condicao = leia("escolha umas das opçoes :")
         switch(condicao){
         case "1" :
             console.log("adicionar")
@@ -63,11 +63,19 @@ while(loop < 1){
                 for(i = 0; i < codigo.length; i++){
                     console.log(codigo[i])
                     if(codigo[i] == resp){
-                        codigo.slice(0,resp)
-                        servico.slice(0,resp)
-                        VALORUNITARIODOACAO.slice(0,resp)
+                    delete codigo[i];
+                    delete servico[i];
+                    delete VALORUNITARIODOACAO[i];
+                    delete movimento[i];
                     }
                 }
+        break;
+        case "4":
+            console.log("codigo\tserviço\t\tvalor\tcarinho")
+            for(i = 0; i < codigo.length; i++){
+                console.log(codigo[i]+"\t"+servico[i]+"\t"+VALORUNITARIODOACAO[i]+"\t"+movimento[i])
+            }
+    
         break;
         case "5":
             console.log("codigo\tserviço\t\tvalor\tcarinho")
