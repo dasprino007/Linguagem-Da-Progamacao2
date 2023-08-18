@@ -1,9 +1,9 @@
 const leia = require("prompt-sync")()
 
-let codigo = ["COD1","COD2","COD3"]
-let servico = ["traduzir filme","traduzir livro","traduzir serie"]
-let VALORUNITARIODOACAO = [10.00,24.99,11.99]
-let movimento = [0,0,0]
+let codigo = ["COD1","COD2","COD3","COD4","COD5","COD6","COD7","COD8","COD9","COD10"]
+let servico = ["traduzir filme","traduzir livro","traduzir serie","traduzir anime","traduzir texto","traduzir manga","traduzir manhwa","traduzir poema","traduzir humor","traduzir poema"]
+let VALORUNITARIODOACAO = [10.00,24.99,11.99,12.99,10.99,11.20,10.23,12.66,15.99,18.99]
+let movimento = [0,0,0,0,0,0,0,0,0,0]
 let loop = 0
 let resp
 let condicao
@@ -39,10 +39,8 @@ while(loop < 1){
         case "2" :
             console.log("renomear produto")
                 resp = leia("coloque o codigo do item para renomear :").toUpperCase()
-                console.log(resp)
                 
                 for(i = 0; i < codigo.length; i++){
-                    console.log(codigo[i])
                     if(codigo[i] == resp){
                         let nome
                         nome = leia("coloque o codigo :").toUpperCase()
@@ -58,7 +56,6 @@ while(loop < 1){
         case "3" :
             console.log("deletar produto")
                 resp = leia("coloque o codigo do item para deletar :").toUpperCase()
-                console.log(resp)
                 
                 for(i = 0; i < codigo.length; i++){
                     console.log(codigo[i])
@@ -85,7 +82,6 @@ while(loop < 1){
             
             for(volta = 0; volta < 10; volta++){
             resp = leia("coloque o codigo do item para comprar :").toUpperCase()
-            console.log(resp)
             
             for(i = 0; i < codigo.length; i++){
                 if(codigo[i] == resp){
