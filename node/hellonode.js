@@ -2,8 +2,8 @@ const http = require('http')
 
 const server = http.createServer((req, res) =>{
     res.statusCode = 200;
-    res.setHeader('Content-Type','Text/Plain'); // requisição do node
-    res.end('Hello, Node.JS Server'); // o que vai aparecer
+    res.setHeader('Content-Type','Text/Plain'); // requisição do node = tipo
+    res.end('Hello, Node.JS Server'); // o que vai aparecer = conteudo
 })
 
 // publicação da pagina no github pages
