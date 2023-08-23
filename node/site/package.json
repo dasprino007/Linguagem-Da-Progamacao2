@@ -1,0 +1,14 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "site muito feio mas é so um teste",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Leite Asprino",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.3.0"
+  }
+}
