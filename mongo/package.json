@@ -1,0 +1,16 @@
+{
+  "name": "mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js localhost 8000"
+  },
+  "author": "Diego Leite Asprino",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^7.5.0",
+    "nodemon": "^3.0.1"
+  }
+}
