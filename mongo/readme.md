@@ -1,2 +1,3 @@
 apos baixar esse projeto execute o comando abaixo:
-npm install
+npm i
+npm run start

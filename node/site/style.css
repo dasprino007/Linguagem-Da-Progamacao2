@@ -17,26 +17,8 @@ body{
 input{
     width: 95%;
     padding: 10px;
-    margin: 5px 0;
+    margin: 10px 0px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
 
-#loginButton{
-    width: 100px;
-    height: 30px;
-    color: white;
-    background-color: #06C755;
-    border: 0px;
-    transition: 50ms;
-}
-
-#loginButton:hover{
-    transition: 50ms;
-    background-color: #028137;
-}
-
-#loginButton::after{
-    transition: 50ms;
-    background-color: #00200d;
-}

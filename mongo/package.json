@@ -10,6 +10,7 @@
   "author": "Diego Leite Asprino",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^10.3.1",
     "mongoose": "^7.5.0",
     "nodemon": "^3.0.1"
   }
