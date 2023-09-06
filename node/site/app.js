@@ -14,6 +14,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+function logOut(){
+  firebase.auth().signOut().then(()=>{alert("usuario deslogado com sucesso")})
+    .cath(err =>{
+      console.error('erro', err );  
+  });
+}
+
 /*
 const emailField = document.getElementById('email');
 const passwordField = document.getElementById('password');

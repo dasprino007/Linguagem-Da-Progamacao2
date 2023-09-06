@@ -22,4 +22,13 @@ function loginEmail(){
     });
 }
 
-currentUser = firebase.auth().currentUser;
+function deletarUsuario(){
+    let currentUser = firebase.auth().currentUser;
+    if(currentUser){
+        currentUser.delete().then(()=>{
+            alert('Usuario Excluido')
+        }).cath(err =>{
+            console.error('erro', err );  
+        });
+    }
+}
