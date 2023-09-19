@@ -9,3 +9,7 @@ function FalarDepoisDe(segundos,frase){
 FalarDepoisDe(3,"otima pergunta")
 .then(frase => frase.concat('?!?'))
 .then(outraFrase => console.log(outraFrase)) // recebe a frase concatiada da outra promise
+
+function escreverLinha(tamanho = 80){
+    
+}
